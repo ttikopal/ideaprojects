@@ -8,12 +8,12 @@ public class Exceptions1 {
         int j = 0;
         //System.out.println(i/j);
 
-        String numero ="casa";
+        String numero ="45";
 
         try {
             System.out.println(parsearNumero(numero));
         } catch (Exception e) {
-            System.out.println("Capturada la excepción: " + e);
+            System.out.println("Capturada la excepción:" + e);
         }
 
 //
