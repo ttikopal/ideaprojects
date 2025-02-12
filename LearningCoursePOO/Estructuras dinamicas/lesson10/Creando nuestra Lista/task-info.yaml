@@ -1,0 +1,16 @@
+type: edu
+files:
+  - name: src/Task.java
+    visible: true
+    learner_created: false
+  - name: src/MyList.java
+    visible: true
+    learner_created: false
+  - name: test/MyListTest.java
+    visible: false
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 11 Feb 2025 14:24:11 UTC"
+record: -1

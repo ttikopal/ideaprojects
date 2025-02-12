@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="BoardTests" tests="3" skipped="0" failures="1" errors="0" timestamp="2025-01-07T16:16:46" hostname="lmde6" time="0.029">
+  <properties/>
+  <testcase name="containTest" classname="BoardTests" time="0.012"/>
+  <testcase name="toStringTests" classname="BoardTests" time="0.016">
+    <failure message="java.lang.AssertionError: El tablero no se visualiza como se espera." type="java.lang.AssertionError">java.lang.AssertionError: El tablero no se visualiza como se espera.
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at BoardTests.toStringTests(BoardTests.java:65)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:112)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:40)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:54)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:53)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:92)
+	at jdk.proxy1/jdk.proxy1.$Proxy4.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$2.run(TestWorker.java:183)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:132)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:103)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:63)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:121)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</failure>
+  </testcase>
+  <testcase name="getCellAtTest" classname="BoardTests" time="0.0"/>
+  <system-out><![CDATA[Expected:
+    A  B  C  D  E  F  G  H
+ 1 ?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m 1
+ 2 ?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m 2
+ 3 ?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m 3
+ 4 ?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m 4
+ 5 ?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m 5
+ 6 ?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m 6
+ 7 ?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m 7
+ 8 ?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m 8
+    A  B  C  D  E  F  G  H
+Actual:
+    A  B  C  D  E  F  G  H 
+ 1 ?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m 1
+ 2 ?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m 2
+ 3 ?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m 3
+ 4 ?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m 4
+ 5 ?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m 5
+ 6 ?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m 6
+ 7 ?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m 7
+ 8 ?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m?[48;2;100;100;100m   ?[0m?[48;2;180;180;180m   ?[0m 8
+    A  B  C  D  E  F  G  H 
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

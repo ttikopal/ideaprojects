@@ -1,0 +1,28 @@
+type: edu
+files:
+  - name: test/PieceTest.java
+    visible: false
+    learner_created: false
+  - name: src/Board.java
+    visible: false
+    learner_created: false
+  - name: src/Cell.java
+    visible: false
+    learner_created: false
+  - name: src/Coordinate.java
+    visible: false
+    learner_created: false
+  - name: src/Piece.java
+    visible: true
+    learner_created: false
+  - name: src/Tool.java
+    visible: false
+    learner_created: false
+  - name: src/Knight.java
+    visible: false
+    learner_created: false
+status: Failed
+feedback:
+  message: java.lang.reflect.InvocationTargetException
+  time: "Wed, 29 Jan 2025 13:48:39 UTC"
+record: -1

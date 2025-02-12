@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MyListTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2025-02-11T14:24:10" hostname="lmde6" time="0.027">
+  <properties/>
+  <testcase name="containsTests" classname="MyListTest" time="0.004"/>
+  <testcase name="indexOfTests" classname="MyListTest" time="0.0"/>
+  <testcase name="clearTests" classname="MyListTest" time="0.002"/>
+  <testcase name="getExceptionTests" classname="MyListTest" time="0.006"/>
+  <testcase name="sizeTests" classname="MyListTest" time="0.001"/>
+  <testcase name="addAllTests" classname="MyListTest" time="0.001"/>
+  <testcase name="subListTests" classname="MyListTest" time="0.002"/>
+  <testcase name="toArrayTests" classname="MyListTest" time="0.001"/>
+  <testcase name="isEmptyTests" classname="MyListTest" time="0.001"/>
+  <testcase name="getTests" classname="MyListTest" time="0.0"/>
+  <testcase name="subListExceptionTests" classname="MyListTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

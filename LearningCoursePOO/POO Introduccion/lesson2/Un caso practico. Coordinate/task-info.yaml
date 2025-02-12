@@ -1,0 +1,10 @@
+type: edu
+files:
+  - name: src/Coordinate.java
+    visible: true
+    learner_created: false
+  - name: test/CoordinateTest.java
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

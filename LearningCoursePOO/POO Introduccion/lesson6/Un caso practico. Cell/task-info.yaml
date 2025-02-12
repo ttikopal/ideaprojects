@@ -1,0 +1,31 @@
+type: edu
+files:
+  - name: src/Cell.java
+    visible: true
+    learner_created: false
+  - name: src/Piece.java
+    visible: true
+    learner_created: false
+  - name: src/Coordinate.java
+    visible: true
+    learner_created: false
+  - name: src/Board.java
+    visible: true
+    learner_created: false
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+  - name: test/CellTests.java
+    visible: false
+    learner_created: false
+  - name: test/CellColorTests.java
+    visible: false
+    learner_created: false
+  - name: test/PieceTests.java
+    visible: false
+    learner_created: false
+status: Failed
+feedback:
+  message: Compilation Failed
+  time: "Tue, 07 Jan 2025 15:03:31 UTC"
+record: -1

@@ -1,0 +1,37 @@
+type: edu
+files:
+  - name: src/Task.java
+    visible: true
+    learner_created: false
+  - name: test/Tests.java
+    visible: false
+    learner_created: false
+  - name: src/DeletedPieceManagerListImp.java
+    visible: true
+    learner_created: false
+  - name: src/Cell.java
+    visible: false
+    learner_created: false
+  - name: src/Pawn.java
+    visible: false
+    learner_created: false
+  - name: src/Coordinate.java
+    visible: false
+    learner_created: false
+  - name: src/Board.java
+    visible: false
+    learner_created: false
+  - name: src/Piece.java
+    visible: true
+    learner_created: false
+  - name: src/IDeletedPieceManager.java
+    visible: true
+    learner_created: false
+  - name: test/DeletedPieceManagerListImpTest.java
+    visible: false
+    learner_created: false
+status: Failed
+feedback:
+  message: La cantidad de piezas no se cuenta correctamente
+  time: "Tue, 11 Feb 2025 14:46:27 UTC"
+record: -1

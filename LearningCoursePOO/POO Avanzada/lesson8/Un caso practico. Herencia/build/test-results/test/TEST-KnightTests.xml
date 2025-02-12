@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="KnightTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-01-29T13:49:20" hostname="lmde6" time="0.012">
+  <properties/>
+  <testcase name="enumTest" classname="KnightTests" time="0.001"/>
+  <testcase name="constructorTest" classname="KnightTests" time="0.011"/>
+  <system-out><![CDATA[BLACK
+BLACK_KNIGHT
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

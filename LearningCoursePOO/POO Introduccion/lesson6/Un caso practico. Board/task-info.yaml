@@ -1,0 +1,25 @@
+type: edu
+files:
+  - name: src/Coordinate.java
+    visible: true
+    learner_created: false
+  - name: src/Board.java
+    visible: true
+    learner_created: false
+  - name: src/Cell.java
+    visible: true
+    learner_created: false
+  - name: src/Piece.java
+    visible: true
+    learner_created: false
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+  - name: test/BoardTests.java
+    visible: false
+    learner_created: false
+status: Failed
+feedback:
+  message: El tablero no se visualiza como se espera.
+  time: "Tue, 07 Jan 2025 16:16:46 UTC"
+record: -1
