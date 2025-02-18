@@ -1,8 +1,9 @@
 package es.ieslavereda.Streams;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Pais implements Comparable<Pais>{
+public class Pais implements Comparable<Pais>, Serializable {
 
     private String nombre;
     private String grupo;

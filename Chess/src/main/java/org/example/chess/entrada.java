@@ -6,7 +6,9 @@ public class entrada {
 
     private static Scanner sc = new Scanner(System.in);
 
-    public static String getTexto(){
+    public static String getTexto(String texto){
+
+        System.out.println(texto);
         return sc.nextLine();
     }
 
@@ -18,7 +20,6 @@ public class entrada {
     public static char getChar(String texto){
 
         System.out.println(texto);
-
         return sc.next().charAt(0);
 
     }

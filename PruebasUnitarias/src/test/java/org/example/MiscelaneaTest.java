@@ -6,6 +6,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MiscelaneaTest {
 
+    int a,b,espero,resultado;
+    double expResult, result;
+    int[] vector ={8,9,1,10,3,13};
+
+
+
     @Test
     void suma() {
         int a = 43;
@@ -31,10 +37,17 @@ class MiscelaneaTest {
     }
     @Test
     void concatena() {
+
+        String cad1="gato";
+        String cad2="pardo";
+        String cadEsp="gatopardo";
+        String cadres=Miscelanea.concatena(cad1,cad2);
+        assertEquals(cadEsp,cadres);
     }
 
     @Test
     void getMayor() {
+
     }
 
     @Test
@@ -43,6 +56,26 @@ class MiscelaneaTest {
 
     @Test
     void getElemento() {
+        a=4;
+        espero=3;
+        resultado=Miscelanea.getElemento(vector,a);
+
+        assertEquals(espero,resultado);
+    }
+
+    @Test
+    void getElemento2() {
+        a=4;
+        espero=3;
+
+        try {
+            resultado=Miscelanea.getElemento(vector,a);
+            fail("El método getElemento debería haber fallado");
+        } catch (Exception e){
+            System.out.println("Ha funcionado la excepción getElemento");
+        }
+
+        assertEquals(espero,resultado);
     }
 
     @Test
@@ -51,10 +84,28 @@ class MiscelaneaTest {
 
     @Test
     void esPrimo() {
+        a=12;
+
+        boolean espero = Miscelanea.esPrimo(a);
+        assertFalse(espero);
+    }
+
+    @Test
+    void esPrimo2() {
+        a=13;
+
+        boolean espero = Miscelanea.esPrimo(a);
+        assertTrue(espero);
     }
 
     @Test
     void areaCirculo() {
+
+        a=4;
+        expResult=Math.pow(a,2)*Math.PI;
+        result=Miscelanea.areaCirculo(a);
+        assertEquals(expResult,result);
+
     }
 
     @Test
