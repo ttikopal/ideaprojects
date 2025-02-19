@@ -141,7 +141,7 @@ public class Board {
         }
         aux += "    A  B  C  D  E  F  G  H";
 
-        aux += "\n\n\n\n\n";
+        aux += "\n\n";
 
 
 

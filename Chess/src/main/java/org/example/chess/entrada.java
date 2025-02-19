@@ -7,7 +7,7 @@ public class entrada {
     private static Scanner sc = new Scanner(System.in);
 
     public static String getTexto(String texto){
-
+        sc = new Scanner(System.in);
         System.out.println(texto);
         return sc.nextLine();
     }
