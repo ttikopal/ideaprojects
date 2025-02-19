@@ -1,5 +1,6 @@
 package org.example.chess;
 
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
@@ -62,6 +63,9 @@ public class Game {
 
 
         do {
+            if (check()){
+                System.out.println("ESTAS EN JAQUE");
+            }
             c = recogerCoordenada();
         } while (board.getCellAt(c).isEmpty()
                 || board.getCellAt(c).getPiece().getType().getColor() == Piece.Color.BLACK);
@@ -96,6 +100,9 @@ public class Game {
 
 
         do {
+            if (check()){
+                System.out.println("ESTAS EN JAQUE");
+            }
             c = recogerCoordenada();
         } while (board.getCellAt(c).isEmpty()
                 || board.getCellAt(c).getPiece().getType().getColor() == Piece.Color.WHITE);
@@ -120,6 +127,22 @@ public class Game {
         System.out.println(board);
     }
 
+    private boolean check(){
+
+        boolean check = false;
+        Set<Coordinate> celdas = new HashSet<>();
+        for (Cell c : board.getCells().values()){
+            if (!c.isEmpty()){
+                board.getCellAt()
+                c.getPiece().getNextMovements();
+            }
+        }
+
+        for (Coordinate c : celdas){
+            if ()
+        }
+        return check;
+    }
 
     public Board getBoard() {
         return board;

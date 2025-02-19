@@ -103,7 +103,9 @@ public class Board {
     }
 
 
-
+    public Map<Coordinate, Cell> getCells() {
+        return cells;
+    }
 
     public int count(Piece.Type pieceType) {
         int i = 0;
@@ -142,9 +144,6 @@ public class Board {
         aux += "    A  B  C  D  E  F  G  H";
 
         aux += "\n\n";
-
-
-
 
         return aux;
     }
