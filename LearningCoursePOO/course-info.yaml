@@ -16,4 +16,3 @@ environment_settings:
   jvm_language_level: JDK_1_9
 vendor:
   name: xavier rosillo guerrero
-yaml_version: 1

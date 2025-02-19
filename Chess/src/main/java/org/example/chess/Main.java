@@ -5,14 +5,9 @@ public class Main {
 
         Game g = new Game();
         Screen sc = new Screen(g.getBoard());
+        g.init();
 
 
-        sc.showTotal();
-        g.getBoard().getCellAt(new Coordinate('B',1)).getPiece().remove();
-
-
-
-        sc.showTotal();
 
 
     }

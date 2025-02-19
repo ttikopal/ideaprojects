@@ -17,9 +17,14 @@ public class Screen {
 
     }
 
+    public Board getBoard() {
+        return board;
+    }
+
     public void showTableroBlancas(){
         System.out.println(board);
     }
+
 
 
     public void showTableroNegras(){
@@ -28,10 +33,11 @@ public class Screen {
 
     public void showTotal(){
         String aux = "";
-        showTableroBlancas();
+
         showTableroNegras();
         System.out.println();
-        System.out.println();
+        showTableroBlancas();
+
         System.out.println("\t\tREMAINING PIECES");
 
         for(Piece.Type p : Piece.Type.values()){
