@@ -20,13 +20,11 @@ public class Game {
     }
 
     public void init() {
-        //board.placePieces();
 
         jugador1 = entrada.getTexto("Nombre de BLANCAS: ");
         jugador2 = entrada.getTexto("Nombre de NEGRAS: ");
 
         do {
-            System.out.println(getBoard().getKingWhite());
             turnoBlancas();
             turnoNegras();
         } while (true);

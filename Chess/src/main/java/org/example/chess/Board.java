@@ -99,10 +99,12 @@ public class Board {
 
 
     public Cell getKingBlack(){
-        Cell i = null;
+        Cell i = new Cell(this, new Coordinate('E', 8));
         for (Cell c : cells.values()){
-            if (c.getPiece().getType() == Piece.Type.BLACK_KING){
-                i = c;
+            if (!c.isEmpty()){
+                if (c.getPiece().getType().equals(Piece.Type.BLACK_KING)){
+                    i = c;
+                }
             }
         }
         return i;
