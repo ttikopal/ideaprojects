@@ -84,6 +84,30 @@ public class Board {
         return cells.containsKey(c);
     }
 
+    public Cell getKingWhite(){
+
+        Cell i = new Cell(this, new Coordinate('E', 8));
+        for (Cell c : cells.values()){
+            if (!c.isEmpty()){
+                if (c.getPiece().getType().equals(Piece.Type.WHITE_KING)){
+                    i = c;
+                }
+            }
+        }
+        return i;
+    }
+
+
+    public Cell getKingBlack(){
+        Cell i = null;
+        for (Cell c : cells.values()){
+            if (c.getPiece().getType() == Piece.Type.BLACK_KING){
+                i = c;
+            }
+        }
+        return i;
+    }
+
     public Cell getCellAt(Coordinate c) {
         return cells.get(c);
     }

@@ -20,12 +20,13 @@ public class Game {
     }
 
     public void init() {
-        board.placePieces();
+        //board.placePieces();
 
         jugador1 = entrada.getTexto("Nombre de BLANCAS: ");
         jugador2 = entrada.getTexto("Nombre de NEGRAS: ");
 
         do {
+            System.out.println(getBoard().getKingWhite());
             turnoBlancas();
             turnoNegras();
         } while (true);
@@ -58,14 +59,14 @@ public class Game {
 
         board.removeHighLight();
         System.out.println(board);
+        if (checkWhite()) {
+            System.out.println("ESTAS EN JAQUE");
+        }
         System.out.println("Mueve " + jugador1 + " --> BLANCAS\n" +
                 "Qué pieza quieres mover?");
 
 
         do {
-            if (check()){
-                System.out.println("ESTAS EN JAQUE");
-            }
             c = recogerCoordenada();
         } while (board.getCellAt(c).isEmpty()
                 || board.getCellAt(c).getPiece().getType().getColor() == Piece.Color.BLACK);
@@ -95,14 +96,14 @@ public class Game {
 
         board.removeHighLight();
         System.out.println(board.toStringBlack());
+        if (checkBlack()) {
+            System.out.println("ESTAS EN JAQUE");
+        }
         System.out.println("Mueve " + jugador2 + " --> NEGRAS\n" +
                 "Qué pieza quieres mover?");
 
 
         do {
-            if (check()){
-                System.out.println("ESTAS EN JAQUE");
-            }
             c = recogerCoordenada();
         } while (board.getCellAt(c).isEmpty()
                 || board.getCellAt(c).getPiece().getType().getColor() == Piece.Color.WHITE);
@@ -127,20 +128,42 @@ public class Game {
         System.out.println(board);
     }
 
-    private boolean check(){
+    public boolean checkWhite() {
 
         boolean check = false;
-        Set<Coordinate> celdas = new HashSet<>();
-        for (Cell c : board.getCells().values()){
-            if (!c.isEmpty()){
-                board.getCellAt()
-                c.getPiece().getNextMovements();
+
+        for (Cell c : board.getCells().values()) {
+            if (!c.isEmpty()) {
+                if (c.getPiece().getColor() == Piece.Color.BLACK) {
+                    for (Coordinate o : c.getPiece().getNextMovements()) {
+                        if (o.equals(board.getKingWhite().getCoordinate())) {
+                            check = true;
+                        }
+                    }
+                }
             }
         }
 
-        for (Coordinate c : celdas){
-            if ()
+        return check;
+    }
+
+
+    public boolean checkBlack() {
+
+        boolean check = false;
+
+        for (Cell c : board.getCells().values()) {
+            if (!c.isEmpty()) {
+                if (c.getPiece().getColor() == Piece.Color.WHITE) {
+                    for (Coordinate o : c.getPiece().getNextMovements()) {
+                        if (o.equals(board.getKingBlack().getCoordinate())) {
+                            check = true;
+                        }
+                    }
+                }
+            }
         }
+
         return check;
     }
 
