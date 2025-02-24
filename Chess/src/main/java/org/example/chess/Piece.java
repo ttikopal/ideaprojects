@@ -35,10 +35,24 @@ public abstract class Piece {
         return getNextMovements().contains(coordinate);
     }
 
+    public boolean canMove(){
+        boolean can = false;
+
+        for (Coordinate c : getNextMovements()){
+            if (cell.getPiece().canMoveTo(c)){
+                can = true;
+            }
+        }
+        return can;
+    }
+
     public void remove(){
-        if(cell!=null)
+        if(cell!=null) {
             cell.setPiece(null);
+            cell.getBoard().getDeletedList().addPiece(this);
+        }
         cell = null;
+
     }
 
     public boolean moveTo(Coordinate coordinate){
@@ -61,6 +75,8 @@ public abstract class Piece {
     public void setCell(Cell cell) {
         this.cell = cell;
     }
+
+
 
     public Type getType() {
         return type;

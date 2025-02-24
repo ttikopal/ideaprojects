@@ -27,23 +27,28 @@ public class Game {
         do {
             turnoBlancas();
             turnoNegras();
+            sc.showTotal();
         } while (true);
 
     }
 
     private Coordinate recogerCoordenada() {
-        char letra;
-        char n;
+        char letra = 0;
         int num = 0;
         Coordinate c;
         String coordenada;
+
         do {
             coordenada = entrada.getTexto("Introduce una coordenada").toUpperCase();
-            letra = (coordenada.charAt(0));
-            if (coordenada.length() == 2) {
-                n = coordenada.charAt(1);
-                num = n - '0';
+
+            if (!coordenada.isEmpty()) {
+                letra = (coordenada.charAt(0));
+                if (coordenada.length() == 2) {
+                    char n = coordenada.charAt(1);
+                    num = n - '0';
+                }
             }
+
         } while (coordenada.length() != 2 ||
                 letra < 'A' || letra > 'H' ||
                 num < 1 || num > 8);
@@ -56,7 +61,7 @@ public class Game {
         Coordinate c;
 
         board.removeHighLight();
-        System.out.println(board);
+        sc.showTableroBlancas();
         if (checkWhite()) {
             System.out.println("ESTAS EN JAQUE");
         }
@@ -67,7 +72,8 @@ public class Game {
         do {
             c = recogerCoordenada();
         } while (board.getCellAt(c).isEmpty()
-                || board.getCellAt(c).getPiece().getType().getColor() == Piece.Color.BLACK);
+                || board.getCellAt(c).getPiece().getType().getColor() == Piece.Color.BLACK
+                || !board.getCellAt(c).getPiece().canMove());
 
         Set<Coordinate> mv = board.getCellAt(c).getPiece().getNextMovements();
 
@@ -86,14 +92,13 @@ public class Game {
 
         board.getCellAt(c).getPiece().moveTo(move);
         board.removeHighLight();
-        System.out.println(board);
     }
 
     private void turnoNegras() {
         Coordinate c;
 
         board.removeHighLight();
-        System.out.println(board.toStringBlack());
+        sc.showTableroNegras();
         if (checkBlack()) {
             System.out.println("ESTAS EN JAQUE");
         }
@@ -104,7 +109,8 @@ public class Game {
         do {
             c = recogerCoordenada();
         } while (board.getCellAt(c).isEmpty()
-                || board.getCellAt(c).getPiece().getType().getColor() == Piece.Color.WHITE);
+                || board.getCellAt(c).getPiece().getType().getColor() == Piece.Color.WHITE
+                || !board.getCellAt(c).getPiece().canMove());
 
         Set<Coordinate> mv = board.getCellAt(c).getPiece().getNextMovements();
 
@@ -126,7 +132,7 @@ public class Game {
         System.out.println(board);
     }
 
-    public boolean checkWhite() {
+    private boolean checkWhite() {
 
         boolean check = false;
 
@@ -146,7 +152,7 @@ public class Game {
     }
 
 
-    public boolean checkBlack() {
+    private boolean checkBlack() {
 
         boolean check = false;
 
@@ -163,6 +169,20 @@ public class Game {
         }
 
         return check;
+    }
+
+    private boolean checkFinish(){
+
+        boolean check = false;
+
+        for (Cell c : board.getCells().values()) {
+            if (!c.isEmpty() && c.getPiece().getType() != Piece.Type.BLACK_KING) {
+                check = true;
+            }
+        }
+
+        return check;
+
     }
 
     public Board getBoard() {

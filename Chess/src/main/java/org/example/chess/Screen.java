@@ -23,20 +23,20 @@ public class Screen {
 
     public void showTableroBlancas(){
         System.out.println(board);
+        showTotal();
+
     }
 
 
 
     public void showTableroNegras(){
         System.out.println(board.toStringBlack());
+        showTotal();
+
     }
 
     public void showTotal(){
         String aux = "";
-
-        showTableroNegras();
-        System.out.println();
-        showTableroBlancas();
 
         System.out.println("\t\tREMAINING PIECES");
 
@@ -50,6 +50,8 @@ public class Screen {
         aux += "\n";
         System.out.println(aux);
         System.out.println(board.getDeletedList());
+        System.out.println();
+        System.out.println();
     }
 
 }
