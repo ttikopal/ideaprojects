@@ -5,6 +5,8 @@ package org.example.MaquinaDePesar;
  */
 
 import java.time.LocalDate;
+import java.time.Year;
+import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 
 public class Cliente {
@@ -43,6 +45,7 @@ public class Cliente {
     public String getApellidos() {
         return apellidos;
     }
+
 
     public LocalDate getFechaNacimiento() {
         return fechaNacimiento;

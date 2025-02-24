@@ -10,8 +10,8 @@ import java.time.temporal.ChronoUnit;
  */
 public class Peso {
     //Atributos
-    private static Cliente cliente;
-    private static double peso;
+    private Cliente cliente;
+    private double peso;
     private double pesoAjustado;
     private LocalDate diaPesaje;
     private IMC imc;
@@ -27,14 +27,14 @@ public class Peso {
      */
     public Peso(Cliente cliente, double peso){
         this.cliente = cliente;
-        this.peso = 70;
+        this.peso = peso;
         this.diaPesaje = LocalDate.now();
-        this.calculadoIMC = calcularNumIMC();
-        this.imc = calcularIMC();
-        this.calculadoPorcentajeGrasaCorporal = calcularPorcentajeGrasaCorporal();
-        this.grasaCorporal = calcularRangoGrasaCorporal();
-        this.tasaMetabolicaBasal = calcularTasaMetabolicaBasal();
-        this.pesoAjustado = calcularPesoAjustado();
+        this.calculadoIMC = calcularNumIMC(cliente,peso);
+        this.imc = calcularIMC(Peso.calcularNumIMC(cliente,peso));
+        this.calculadoPorcentajeGrasaCorporal = calcularPorcentajeGrasaCorporal(cliente,Peso.calcularNumIMC(cliente,peso));
+        this.grasaCorporal = calcularRangoGrasaCorporal(cliente,peso);
+        this.tasaMetabolicaBasal = calcularTasaMetabolicaBasal(cliente, peso);
+        this.pesoAjustado = calcularPesoAjustado(cliente,peso);
     }
 
     /**
@@ -52,7 +52,7 @@ public class Peso {
      * IMC: se calcula de la siguiente forma: peso en kg/(altura^2). La altura está en metros).
      * @return imc calculado
      */
-    public static double calcularNumIMC(){
+    public static double calcularNumIMC(Cliente cliente, double peso){
         return (peso/(Math.pow((cliente.getAltura()/100.0),2)));
     }
 
@@ -64,12 +64,12 @@ public class Peso {
      * Obeso (IMC >= 30,00)
      * @return RangoIMC
      */
-    public IMC calcularIMC(){
-        if(this.calculadoIMC < 18.5)
+    public static IMC calcularIMC(double calculadoIMC){
+        if(calculadoIMC < 18.5)
             return IMC.BAJO;
-        else if (this.calculadoIMC < 25)
+        else if (calculadoIMC < 25)
             return IMC.RANGO_NORMAL;
-        else if (this.calculadoIMC < 30)
+        else if (calculadoIMC < 30)
             return IMC.SOBREPESO;
         return IMC.OBESO;
     }
@@ -78,8 +78,8 @@ public class Peso {
      * Porcentaje de grasa corporal: se calcula como:  –44.988 + (0.503 × edad) + (10.689 × sexo) + (3.172 × IMC) – (0.026 × IMC²) + (0.181 × IMC × sexo)
      * – (0.02 × IMC × edad) – (0.005 × IMC² × sexo) + (0.00021 × IMC² × edad). El sexo es 0 para hombres y 1 para mujeres.
      */
-    public double calcularPorcentajeGrasaCorporal(){
-        int edad = getEdad();
+    public static double calcularPorcentajeGrasaCorporal(Cliente cliente, double calculadoIMC){
+        int edad = getEdad(cliente);
 
         return (-44.988+(0.503*edad) +(10.689*cliente.getSexo().ordinal())+(3.172*calculadoIMC)-(0.026*Math.pow(calculadoIMC,2))
                 +(0.181*calculadoIMC*cliente.getSexo().ordinal())-(0.02*calculadoIMC*edad)-(0.005*Math.pow(calculadoIMC,2)*cliente.getSexo().ordinal())
@@ -90,7 +90,7 @@ public class Peso {
      * Calcular la edad
      * @return edad como entero
      */
-    private int getEdad() {
+    private static int getEdad(Cliente cliente) {
         return (int) ChronoUnit.YEARS.between(cliente.getFechaNacimiento(), LocalDate.now());
     }
 
@@ -103,29 +103,29 @@ public class Peso {
      * 	Promedio: 25-31 % (mujeres), 18-24 % (hombres);
      * 	Obesos: 32 %+ (mujeres), 25 %+ (hombres).
      */
-    public GrasaCorporal calcularRangoGrasaCorporal(){
+    public static GrasaCorporal calcularRangoGrasaCorporal(Cliente cliente, double calculadoIMC){
         if(cliente.getSexo()==Sexo.HOMBRE){
-            if(calculadoPorcentajeGrasaCorporal<2)
+            if(calcularPorcentajeGrasaCorporal(cliente,calculadoIMC)<2)
                 return GrasaCorporal.GRASA_ESCASA;
-            else if(calculadoPorcentajeGrasaCorporal<6)
+            else if(calcularPorcentajeGrasaCorporal(cliente,calculadoIMC)<6)
                 return GrasaCorporal.GRASA_ESENCIAL;
-            else if(calculadoPorcentajeGrasaCorporal<14)
+            else if(calcularPorcentajeGrasaCorporal(cliente,calculadoIMC)<14)
                 return GrasaCorporal.DEPORTISTAS;
-            else if(calculadoPorcentajeGrasaCorporal<18)
+            else if(calcularPorcentajeGrasaCorporal(cliente,calculadoIMC)<18)
                 return GrasaCorporal.FITNESS;
-            else if(calculadoPorcentajeGrasaCorporal<25)
+            else if(calcularPorcentajeGrasaCorporal(cliente,calculadoIMC)<25)
                 return GrasaCorporal.PROMEDIO;
             return GrasaCorporal.OBESOS;
         }
-        if(calculadoPorcentajeGrasaCorporal<10)
+        if(calcularPorcentajeGrasaCorporal(cliente,calculadoIMC)<10)
             return GrasaCorporal.GRASA_ESCASA;
-        else if(calculadoPorcentajeGrasaCorporal<14)
+        else if(calcularPorcentajeGrasaCorporal(cliente,calculadoIMC)<14)
             return GrasaCorporal.GRASA_ESENCIAL;
-        else if(calculadoPorcentajeGrasaCorporal<21)
+        else if(calcularPorcentajeGrasaCorporal(cliente,calculadoIMC)<21)
             return GrasaCorporal.DEPORTISTAS;
-        else if(calculadoPorcentajeGrasaCorporal<25)
+        else if(calcularPorcentajeGrasaCorporal(cliente,calculadoIMC)<25)
             return GrasaCorporal.FITNESS;
-        else if(calculadoPorcentajeGrasaCorporal<32)
+        else if(calcularPorcentajeGrasaCorporal(cliente,calculadoIMC)<32)
             return GrasaCorporal.PROMEDIO;
         return GrasaCorporal.OBESOS;
     }
@@ -134,8 +134,8 @@ public class Peso {
      * Tasa metabólica basal: La TMB se calcula como: 10 × peso (kg) + 6.25 × altura (cm) - 5 × edad (años) + s (kcal/día)
      * donde s es +5 para hombres y -161 para mujeres.
      */
-    public double calcularTasaMetabolicaBasal(){
-        int edad = getEdad();
+    public static double calcularTasaMetabolicaBasal(Cliente cliente, double peso){
+        int edad = getEdad(cliente);
         return 10*peso+6.25*cliente.getAltura()-5*edad+((cliente.getSexo()==Sexo.HOMBRE)?5:-161);
     }
 
@@ -147,8 +147,8 @@ public class Peso {
      * o	PI es el peso corporal ideal
      * @return
      */
-    public double calcularPesoAjustado(){
-        double pesoIdeal = calcularPesoIdeal();
+    public static double calcularPesoAjustado(Cliente cliente, double peso){
+        double pesoIdeal = calcularPesoIdeal(cliente);
         return pesoIdeal+0.4*(peso-pesoIdeal);
     }
 
@@ -158,7 +158,7 @@ public class Peso {
      *  Para las mujeres: 49 kg + 0.67 kg por cada centímetro por encima de 152cm
      * @return
      */
-    private double calcularPesoIdeal(){
+    private static double calcularPesoIdeal(Cliente cliente){
         int diferenciaAltura= cliente.getAltura()-152;
 
         if(cliente.getSexo()==Sexo.HOMBRE)

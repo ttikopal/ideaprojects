@@ -20,20 +20,9 @@ public class Gimnasio {
         System.out.println(vicent);
         System.out.println(vicent.historicosToString());
 
-        pepa.anyadirPeso(75.9);
-        pepa.anyadirPeso(80.4,LocalDate.of(2024,11,15));
-        pepa.anyadirPeso(85.4,LocalDate.of(2024,10,15));
-        System.out.println(pepa);
-        System.out.println(pepa.historicosToString());
 
 
-        luna.anyadirPeso(77.5);
-        blanca.anyadirPeso(51.2);
-        manel.anyadirPeso(72.5);
-        System.out.println(luna);
-        System.out.println(blanca);
-        System.out.println(manel);
-
+        System.out.println(Peso.calcularPorcentajeGrasaCorporal(vicent,Peso.calcularNumIMC(vicent,81.3)));
 
     }
 }

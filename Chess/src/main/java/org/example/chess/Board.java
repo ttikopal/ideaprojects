@@ -98,6 +98,7 @@ public class Board {
     }
 
 
+
     public Cell getKingBlack(){
         Cell i = new Cell(this, new Coordinate('E', 8));
         for (Cell c : cells.values()){

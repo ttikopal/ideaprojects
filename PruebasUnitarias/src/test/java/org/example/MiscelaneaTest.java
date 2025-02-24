@@ -48,10 +48,24 @@ class MiscelaneaTest {
     @Test
     void getMayor() {
 
+        a = 10;
+        b = 20;
+        int esperado = b;
+        int resultado = Miscelanea.getMayor(a,b);
+
+        assertEquals(esperado,resultado);
+
     }
 
     @Test
     void getMaximo() {
+
+        int esperado = 13;
+        int resultado = Miscelanea.getMaximo(vector);
+
+        assertEquals(resultado,esperado);
+
+
     }
 
     @Test
@@ -80,6 +94,14 @@ class MiscelaneaTest {
 
     @Test
     void factorial() {
+
+        int esperado = 6;
+
+        int resultado = Miscelanea.factorial(3);
+
+        assertEquals(esperado,resultado);
+
+
     }
 
     @Test
@@ -110,13 +132,48 @@ class MiscelaneaTest {
 
     @Test
     void areaTriangulo() {
+
+        a = 20;
+        b= 30;
+
+
+        double esperado = 300.0;
+
+        double resultado = Miscelanea.areaTriangulo(a,b);
+
+        assertEquals(esperado,resultado);
+
+
     }
 
     @Test
     void areaCuadrado() {
+
+        a = 20;
+        b= 30;
+
+
+        double esperado = 300.0;
+
+        double resultado = Miscelanea.areaTriangulo(a,b);
+
+        assertEquals(esperado,resultado);
+
+
+
+
     }
 
     @Test
     void decimalABinario() {
+
+        String esperado = "100101100";
+
+        String resultado = Miscelanea.decimalABinario(300);
+
+        assertEquals(esperado,resultado);
+
+
+
     }
 }

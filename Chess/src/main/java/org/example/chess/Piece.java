@@ -55,6 +55,7 @@ public abstract class Piece {
 
     }
 
+
     public boolean moveTo(Coordinate coordinate){
         if(cell == null) return false;
         if(!canMoveTo(coordinate)) return false;

@@ -17,6 +17,17 @@ public class DeletedPieceManagerListImp implements IDeletedPieceManager{
     }
 
 
+    public boolean contains(Piece.Type o){
+        boolean contains = false;
+
+        for (Piece p : pieceList){
+            if (p.getType().equals(o)){
+                contains = true;
+            }
+        }
+        return contains;
+    }
+
     @Override
     public String toString() {
         String aux = "";

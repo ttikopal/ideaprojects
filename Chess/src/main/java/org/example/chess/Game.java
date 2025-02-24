@@ -15,7 +15,7 @@ public class Game {
 
     public Game() {
         board = new Board();
-        board.placePieces();
+//        board.placePieces();
         sc = new Screen(board);
     }
 
@@ -25,10 +25,21 @@ public class Game {
         jugador2 = entrada.getTexto("Nombre de NEGRAS: ");
 
         do {
+
             turnoBlancas();
-            turnoNegras();
+
+            if (!winBlack() && !winWhite()){
+                turnoNegras();
+            }
+
             sc.showTotal();
-        } while (true);
+
+            if (winWhite()){
+                System.out.println("Ha ganado " + jugador1);
+            } else {
+                System.out.println("Ha ganado " + jugador2);
+            }
+        } while (!winBlack() && !winWhite());
 
     }
 
@@ -92,6 +103,7 @@ public class Game {
 
         board.getCellAt(c).getPiece().moveTo(move);
         board.removeHighLight();
+        checkMateWhite();
     }
 
     private void turnoNegras() {
@@ -151,7 +163,6 @@ public class Game {
         return check;
     }
 
-
     private boolean checkBlack() {
 
         boolean check = false;
@@ -167,27 +178,35 @@ public class Game {
                 }
             }
         }
-
         return check;
     }
 
-    private boolean checkFinish(){
+    private boolean winWhite(){
+        return board.getDeletedList().contains(Piece.Type.BLACK_KING);
+    }
 
-        boolean check = false;
+    private boolean winBlack(){
+        return board.getDeletedList().contains(Piece.Type.WHITE_KING);
+    }
 
-        for (Cell c : board.getCells().values()) {
-            if (!c.isEmpty() && c.getPiece().getType() != Piece.Type.BLACK_KING) {
-                check = true;
+    private boolean checkMateWhite(){
+        boolean mate = false;
+        if (checkWhite()){
+            for (Cell c : board.getCells().values()){
+                if (!c.isEmpty() && c.getPiece().getColor() == Piece.Color.WHITE){
+                    for (Coordinate co : c.getPiece().getNextMovements()){
+                        while (checkWhite()){
+                            c.getPiece().moveTo(co);
+                        }
+                    }
+
+                }
             }
         }
-
-        return check;
-
+        return mate;
     }
 
     public Board getBoard() {
         return board;
     }
-
-
 }
